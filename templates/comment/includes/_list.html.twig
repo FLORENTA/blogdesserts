@@ -1,0 +1,47 @@
+<p>{{ 'comment.counter'|trans({'%number%':comments|length}) }} </p>
+<div id="accordion">
+    {% for comment in comments %}
+        <div class="card">
+            <div class="card-header" id="heading{{ comment.id }}">
+                <h5 class="mb-0">
+                    <p class="text-info float-right">{{ 'comment.list.context'|trans }}: {{ comment.commentContext.object|className }} {{ comment.commentContext.objectId }}</p>
+                    <blockquote class="blockquote" data-toggle="collapse" data-target="#collapse{{ comment.id }}" aria-expanded="true" aria-controls="collapse{{ comment.id }}">
+                        <p class="mb-0">{{ comment.content }}</p>
+                        <footer class="blockquote-footer">{{ comment.author }}, le {{ comment.createdAt|date('d/m/Y à H:i:s') }}</footer>
+                    </blockquote>
+                    {{ render(controller('App\\Controller\\Admin\\CommentController::edit', {'id': comment.id, 'onlyVisibleField': true})) }}
+                </h5>
+            </div>
+            <div id="collapse{{ comment.id }}" class="collapse show p-2" aria-labelledby="heading{{ comment.id }}" data-parent="#accordion">
+                {% if comment.child is not null %}
+                    <div class="card-body">
+                        <blockquote class="blockquote text-right">
+                            <p class="mb-0">{{ comment.child.content }}</p>
+                            <footer class="blockquote-footer">{{ comment.child.author }}, le {{ comment.createdAt|date('d/m/Y à H:i:s') }}</footer>
+                        </blockquote>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-6">
+                            <span>{{ 'comment.form.edit'|trans }}</span>
+                            {{ render(controller('App\\Controller\\Admin\\CommentController::edit', {'id': comment.child.id})) }}
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <a class="btn btn-danger float-right remove-comment" data-href="{{ path('app_admin_delete_comment', {id: comment.child.id}) }}">
+                        <i class="fas fa-trash"></i>
+                        {{ 'comment.buttons.delete'|trans }}
+                    </a>
+                {% else %}
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-6">
+                            {{ render(controller('App\\Controller\\CommentController::form', {'object': comment.commentContext.object, 'parentId': comment.id})) }}
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

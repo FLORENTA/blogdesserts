@@ -1,0 +1,42 @@
+# Article
+article.buttons.create: Créer l'article
+article.buttons.delete: Supprimer
+article.buttons.edit: Éditer
+article.buttons.more_articles: Plus d'articles
+article.buttons.new: Créer un article
+article.form.publish: Envoyer la newsletter
+article.form.titles.title: Titre
+article.form.titles.categories: Catégories
+article.form.titles.images: Images
+article.form.titles.pdf_file: Fichier PDF
+article.show_more.failure: Pas d'article(s) trouvé(s).
+article.title.categories: Catégories
+
+# Comment
+comment.add: Ajouter un commentaire
+comment.buttons.delete: Supprimer
+comment.counter: "%number% commentaires"
+comment.deletion.success: Suppression réussie
+comment.form.author.label: Auteur
+comment.form.content.label: Message
+comment.form.edit: Editer le commentaire
+comment.form.reply: Répondre
+comment.form.visible.label: Autoriser l'affichage
+comment.list: Commentaires
+comment.list.context: Contexte
+comment.list.counter: "%number% commentaires"
+comment.submission.failure: Une erreur est survenue lors de l'envoi de votre commentaire.
+comment.submission.success: Commentaire envoyé.
+
+# Generic
+generic.form.submit.label: Envoyer
+
+# Home page
+home.card.know_more: En savoir plus
+
+# Navigation bar
+navbar.link.home: Accueil
+navbar.link.articles: Articles
+navbar.link.comments: Commentaires
+navbar.link.logout: Déconnexion
+navbar.title: Côté Desserts

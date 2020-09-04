@@ -1,0 +1,42 @@
+# Article
+article.buttons.create: Create article
+article.buttons.delete: Delete
+article.buttons.edit: Edit
+article.buttons.more_articles: More articles
+article.buttons.new: Create an article
+article.categories: Categories
+article.form.publish: Send newsletter
+article.form.titles.title: Title
+article.form.titles.categories: Categories
+article.form.titles.images: Images
+article.form.titles.pdf_file: PDF File
+article.show_more.failure: No more articles found.
+
+# Comment
+comment.add: Add comment
+comment.buttons.delete: Delete
+comment.counter: "%number% comments"
+comment.deletion.success: Comment successfully deleted
+comment.form.author.label: Author
+comment.form.content.label: Message
+comment.form.edit: Edit the comment
+comment.form.reply: Reply
+comment.form.visible.label: Enable display
+comment.list: Comments
+comment.list.context: Context
+comment.list.counter: "%number% comments"
+comment.submission.failure: An error occurred when trying to submit your comment.
+comment.submission.success: Comment successfully sent.
+
+# Generic
+generic.form.submit.label: submit
+
+# Homepage
+home.card.know_more: Know more
+
+# Navigation bar
+navbar.link.articles: Articles
+navbar.link.comments: Comments
+navbar.link.home: Home
+navbar.link.logout: Log out
+navbar.title: Côté Desserts

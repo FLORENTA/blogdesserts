@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <div class="card-deck" id="articles-list">
+        {% include 'article/includes/_cards.html.twig' with {'articles': articles} %}
+    </div>
+    {% if display_more_articles_button is defined and true == display_more_articles_button %}
+        <div class="row">
+            <div class="col text-center mb-5">
+                <button class="btn btn-dark text-white" id="more-articles">{{ 'article.buttons.more_articles'|trans }}</button>
+            </div>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5 mb-5">
+        {{ render(controller('App\\Controller\\Admin\\CommentController::list')) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('comment') }}
+{% endblock %}

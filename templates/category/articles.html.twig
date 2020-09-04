@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'article/includes/_articles_container.htm.twig' with {'articles': category.articles} %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('articles') }}
+{% endblock %}

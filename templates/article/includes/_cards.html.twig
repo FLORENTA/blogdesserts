@@ -1,0 +1,12 @@
+{% for article in articles %}
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        {% set image = article.images|first %}
+        {% if image.src is defined and image.src is not null %}
+            <img class="card-img-top" src="{{ asset('image/' ~ image.src) }}" alt="{{ image.alt ?? '' }}">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <a href="{{ path('app_article', {id: article.id}) }}" class="btn btn-outline-light">{{ 'home.card.know_more'|trans }}</a>
+        </div>
+    </div>
+{% endfor %}

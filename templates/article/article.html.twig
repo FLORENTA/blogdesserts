@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <h2 class="card-header">{{ article.title }}</h2>
+                    <div class="card-body">
+                        {% for image in article.images %}
+                            {% if image.src is defined and image.src is not null %}
+                                <img src="{{ asset('image/' ~ image.src ) }}" alt="{{ image.alt }}" class="w-100">
+                            {% endif %}
+                            <p>{{ image.content | raw }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-body">
+                            <div class="mb-5">
+                                <p class="mb-0">{{ 'article.categories'|trans }}</p>
+                                {% for category in article.categories %}
+                                    <a href="{{ path('app_categories_for_article', {id: category.id}) }}" class="badge badge-dark">{{ category.name }}</a>
+                                {% endfor %}
+                            </div>
+                            <button class="btn btn-dark mt-2 mb-2" type="button" data-toggle="collapse" data-target="#comment-list" aria-expanded="false" aria-controls="collapseExample">
+                                <span>{{ 'comment.list'|trans }}</span> <span class="badge badge-pill badge-light">{{ nb_visible_comments }}</span>
+                            </button>
+                            <button class="btn btn-dark mt-2 mb-2" type="button" data-toggle="collapse" data-target="#comment-form" aria-expanded="false" aria-controls="collapseExample">
+                                <span>{{ 'comment.add'|trans }}</span>
+                            </button>
+                            <div class="collapse" id="comment-list">
+                                {{ render(controller('App\\Controller\\CommentController::show', {object: article})) }}
+                            </div>
+                            <div class="collapse" id="comment-form">
+                                <h3 class="mt-3 mb-3">{{ 'comment.add'|trans }}</h3>
+                                {{ render(controller('App\\Controller\\CommentController::form', {object: article})) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('article') }}
+{% endblock %}

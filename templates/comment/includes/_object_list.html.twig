@@ -1,0 +1,20 @@
+<div class="collapse" id="comment-list">
+    {% for comment in comments %}
+        {% if comment.visible %}
+            <div class="card mb-1">
+                <div class="card-body">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">{{ comment.content }}</p>
+                        <footer class="blockquote-footer">{{ comment.author }}, le {{ comment.createdAt|date('d/m/Y à H:i:s') }}</footer>
+                    </blockquote>
+                    {% if comment.child is not null and comment.child.visible %}
+                        <blockquote class="blockquote text-right">
+                            <p class="mb-0">{{ comment.child.content }}</p>
+                            <footer class="blockquote-footer">{{ comment.child.author }}, le {{ comment.createdAt|date('d/m/Y à H:i:s') }}</footer>
+                        </blockquote>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
